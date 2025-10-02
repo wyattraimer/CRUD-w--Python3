@@ -31,7 +31,7 @@ def putLocation(values):
     cursor.execute(f"insert into location (x,y) values ({values[0]},{values[1]})")
 
 # C in CRUD
-def getLocation():
+def getLocationFromUser():
     x=input("Please enter X: ")
     y=input("Please enter Y: ")
     return (x,y)
@@ -84,7 +84,7 @@ while choice!=0:
     if choice==1:
         showLocations(getLocations())
     if choice==2:
-        putLocation(getLocation())
+        putLocation(getLocationFromUser())
     if choice==3:
         updateLocation()
     # if choice==4:
