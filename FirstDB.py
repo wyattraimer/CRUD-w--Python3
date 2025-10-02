@@ -40,9 +40,10 @@ def getLocation():
 def putChange(d):
     first="update location set "
     id=d["id"]
-    last=f"where id={id}"
+    last=f" where id={id}"
     value1=""
     if "x" in d:
+        x=d["x"]
         value1=f"x={x}"
     value2=""
     if "y" in d:
