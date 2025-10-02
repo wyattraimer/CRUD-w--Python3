@@ -13,6 +13,7 @@ root.geometry("300x200")
 button = tk.Button(root, text="Click Me!", command=button_clicked)
 showButton = tk.Button(root, text="Show Locations", command=showLocations)
 
-button.pack(pady=50)
+button.pack(pady=20)
+showButton.pack(pady=20)
 
 root.mainloop()
