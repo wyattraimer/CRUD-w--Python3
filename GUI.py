@@ -2,11 +2,13 @@ import tkinter as tk
 
 def button_clicked():
     # print("Button was clicked!")
-    outputArea.insert(tk.END, "Button was Clicked ")
+    outputArea.delete(1.0, tk.END)
+    outputArea.insert(tk.END, "Button was Clicked\n")
 
 def showLocations():
     # print("Data would be here")
-    outputArea.insert(tk.END, "Data would be here ")
+    outputArea.delete(1.0, tk.END)
+    outputArea.insert(tk.END, "Data would be here\n")
 
 root = tk.Tk()
 root.title("Button Example")
