@@ -3,16 +3,16 @@ import tkinter as tk
 def button_clicked():
     global outputArea
     global txtId
-    # print("Button was clicked!")
     outputArea.delete(1.0, tk.END)
     outputArea.insert(tk.END, "Button was Clicked\n" + txtId.get(1.0,tk.END))
 
 def showLocations():
-    # print("Data would be here")
+    global selected
+    global outputArea
     # deletes top text?
     outputArea.delete(1.0, tk.END)
     # puts specific text at bottom of text area
-    outputArea.insert(tk.END, "Data would be here\n")
+    outputArea.insert(tk.END, "Data would be here\n" + selected.get())
 
 root = tk.Tk()
 root.title("Button Example")
@@ -25,10 +25,9 @@ labelId = tk.Label(root, text="Input Id")
 txtId = tk.Text(root, height=1)
 
 items = ["--Select--", "Wyatt", "was", "here"]
-# var = tk.StringVar()
-# var.set(items)
 label2Id = tk.Label(root, text="Drop Down Demo")
-lb=tk.OptionMenu(root, tk.StringVar(value="--Select--"), *items)
+selected=tk.StringVar(value="--Select--")
+lb=tk.OptionMenu(root, selected, *items)
 
 
 button.pack(pady=2)
