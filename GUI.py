@@ -16,7 +16,10 @@ def showLocations():
 
 root = tk.Tk()
 root.title("Button Example")
-root.geometry("400x600")
+root.geometry("500x350")
+
+root.grid_columnconfigure(0, weight=1, uniform="col")
+root.grid_columnconfigure(1, weight=1, uniform="col")
 
 button = tk.Button(root, text="Click Me!", command=button_clicked)
 showButton = tk.Button(root, text="Show Locations", command=showLocations)
@@ -44,6 +47,6 @@ outputArea.grid(row=1,column=0,columnspan=2,sticky="ew")
 labelId.grid(row=2,column=0)
 txtId.grid(row=2,column=1)
 label2Id.grid(row=3,column=0)
-lb.grid(row=3,column=1)
+lb.grid(row=3,column=1,sticky="ew")
 
 root.mainloop()
