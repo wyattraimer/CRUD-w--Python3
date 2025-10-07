@@ -24,11 +24,11 @@ outputArea = tk.Text(root, height=10, width=40)
 labelId = tk.Label(root, text="Input Id")
 txtId = tk.Text(root, height=1)
 
-items = ["Wyatt", "was", "here"]
-var = tk.StringVar()
-var.set(items)
+items = ["--Select--", "Wyatt", "was", "here"]
+# var = tk.StringVar()
+# var.set(items)
 label2Id = tk.Label(root, text="Drop Down Demo")
-lb=tk.Listbox(root, listvariable=var)
+lb=tk.OptionMenu(root, tk.StringVar(value="--Select--"), *items)
 
 
 button.pack(pady=2)
