@@ -32,15 +32,6 @@ label2Id = tk.Label(root, text="Drop Down Demo")
 selected=tk.StringVar(value="--Select--")
 lb=tk.OptionMenu(root, selected, *items)
 
-
-# button.pack(pady=2)
-# showButton.pack(pady=2)
-# outputArea.pack(pady=2)
-# labelId.pack(pady=2)
-# txtId.pack(pady=2)
-# label2Id.pack(pady=2)
-# lb.pack(pady=2)
-
 button.grid(row=0,column=0)
 showButton.grid(row=0,column=1)
 outputArea.grid(row=1,column=0,columnspan=2,sticky="ew")
