@@ -1,9 +1,11 @@
 import tkinter as tk
 
 def button_clicked():
+    global outputArea
+    global txtId
     # print("Button was clicked!")
     outputArea.delete(1.0, tk.END)
-    outputArea.insert(tk.END, "Button was Clicked\n")
+    outputArea.insert(tk.END, "Button was Clicked\n" + txtId.get(1.0,tk.END))
 
 def showLocations():
     # print("Data would be here")
