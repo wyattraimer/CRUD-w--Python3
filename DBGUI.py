@@ -10,8 +10,8 @@ def closeAddWindow():
 def add_clicked():
     global root
     addWin=tk.Toplevel(root)
-    addButton = tk.Button(root, text="Add", command=actualAddToDB)
-    deleteButton = tk.Button(root, text="Cancel", command=closeAddWindow)
+    addButton = tk.Button(addWin, text="Add", command=actualAddToDB)
+    deleteButton = tk.Button(addWin, text="Cancel", command=closeAddWindow)
 
 
 def delete_clicked():
