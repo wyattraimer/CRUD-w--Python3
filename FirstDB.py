@@ -1,4 +1,4 @@
-import DB import *
+from DB import *
 
 def showLocations(data):
     print("\t x|\t y|\t id|")
