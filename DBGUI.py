@@ -28,7 +28,7 @@ def saveChange_clicked():
 
 root = tk.Tk()
 root.title("Location Data Tool")
-root.geometry("500x350")
+root.geometry("600x300")
 root.grid_columnconfigure(0, weight=1, uniform="col")
 root.grid_columnconfigure(1, weight=1, uniform="col")
 root.grid_columnconfigure(2, weight=1, uniform="col")
