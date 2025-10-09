@@ -1,8 +1,18 @@
 import tkinter as tk
 import DB import *
 
+def actualAddToDB():
+    pass
+
+def closeAddWindow():
+    pass
+
 def add_clicked():
-    
+    global root
+    addWin=tk.Toplevel(root)
+    addButton = tk.Button(root, text="Add", command=actualAddToDB)
+    deleteButton = tk.Button(root, text="Cancel", command=closeAddWindow)
+
 
 def delete_clicked():
     global outputArea
