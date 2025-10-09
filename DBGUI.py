@@ -1,8 +1,9 @@
 import tkinter as tk
 from DB import *
 
-def actualAddToDB():
-    pass
+def actualAddToDB(values):
+    # need to pass a tuple to putLocation()
+    putLocation(values)
 
 def add_clicked():
     global root
@@ -14,7 +15,9 @@ def add_clicked():
     txtX=tk.Text(addWin, height=1)
     lblY=tk.Label(addWin,text="Y Value")
     txtY=tk.Text(addWin, height=1)
-    addButton = tk.Button(addWin, text="Add", command=actualAddToDB)
+    addButton = tk.Button(addWin, text="Add", command=lambda : actualAddToDB((
+        txtX.get(1.0,tk.END),txtY.get(1.0,tk.END)))
+        )
     cancelButton = tk.Button(addWin, text="Cancel", command=lambda : addWin.destroy())
     lblX.grid(row=0,column=0)
     txtX.grid(row=0,column=1)
