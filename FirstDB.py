@@ -1,15 +1,4 @@
-import psycopg2
-
-# CREATE RETRIEVE UPDATE DELETE (CRUD)
-
-connection = psycopg2.connect(user="accounting",
-                                password="password",
-                                host="localhost",
-                                database="Fall2025CSCI260")
-
-
-
-cursor = connection.cursor()
+import DB
 
 def showLocations(data):
     print("\t x|\t y|\t id|")
@@ -20,37 +9,11 @@ def showLocations(data):
         print("")
     print("---------------")
 
-# R in CRUD
-def getLocations():
-    cursor.execute("select id,x,y from location")
-    data=cursor.fetchall()
-    # print(data)
-    return data
-
-def putLocation(values):
-    cursor.execute(f"insert into location (x,y) values ({values[0]},{values[1]})")
-
 # C in CRUD
 def getLocationFromUser():
     x=input("Please enter X: ")
     y=input("Please enter Y: ")
     return (x,y)
-
-# d is a dictionary that includes id and either x,y or both
-def putChange(d):
-    first="update location set "
-    id=d["id"]
-    last=f" where id={id}"
-    value1=""
-    if "x" in d:
-        x=d["x"]
-        value1=f"x={x}"
-    value2=""
-    if "y" in d:
-        value1=f"y={y}"
-    if "x" in d and "y" in d:
-        value1=value1+","
-    cursor.execute(first+value1+value2+last)
 
 def updateLocation():
     choice=0
@@ -90,4 +53,4 @@ while choice!=0:
     # if choice==4:
 
     if choice==5:
-        connection.commit()
+        commitChanges()
