@@ -1,17 +1,27 @@
 import tkinter as tk
-import DB import *
+from DB import *
 
 def actualAddToDB():
-    pass
-
-def closeAddWindow():
     pass
 
 def add_clicked():
     global root
     addWin=tk.Toplevel(root)
+    addWin.geometry("600x300")
+    addWin.grid_columnconfigure(0, weight=1, uniform="col")
+    addWin.grid_columnconfigure(1, weight=1, uniform="col")
+    lblX=tk.Label(addWin,text="X Value")
+    txtX=tk.Text(addWin, height=1)
+    lblY=tk.Label(addWin,text="Y Value")
+    txtY=tk.Text(addWin, height=1)
     addButton = tk.Button(addWin, text="Add", command=actualAddToDB)
-    deleteButton = tk.Button(addWin, text="Cancel", command=closeAddWindow)
+    cancelButton = tk.Button(addWin, text="Cancel", command=lambda : addWin.destroy())
+    lblX.grid(row=0,column=0)
+    txtX.grid(row=0,column=1)
+    lblY.grid(row=1,column=0)
+    txtY.grid(row=1,column=1)
+    addButton.grid(row=3,column=0)
+    cancelButton.grid(row=3,column=1)
 
 
 def delete_clicked():
