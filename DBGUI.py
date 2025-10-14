@@ -46,6 +46,13 @@ def update_clicked():
     # puts specific text at bottom of text area
     outputArea.insert(tk.END, "Data would be here\n" + selected.get())
 
+def outputLocations():
+    global outputArea
+    # goes to db query and gives locations
+    locations=getLocations()
+    for location in locations:
+        outputArea.insert(tk.END, str(location)+"\n")
+
 root = tk.Tk()
 root.title("Location Data Tool")
 root.geometry("600x300")
@@ -65,5 +72,6 @@ updateButton.grid(row=5,column=1)
 deleteButton.grid(row=5,column=2)
 saveButton.grid(row=5,column=3)
 outputArea.grid(row=0,column=0,columnspan=2,rowspan=5,sticky="ew")
+outputLocations()
 
 root.mainloop()
