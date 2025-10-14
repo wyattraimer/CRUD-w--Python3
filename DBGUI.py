@@ -7,6 +7,12 @@ def actualAddToDB(values,win):
     outputLocations()
     win.destroy()
 
+def actualUpdateDB(values, win):
+    # d is a dictionary
+    putChange(d)
+    outputLocations()
+    win.destroy()
+
 def add_clicked():
     global root
     addWin=tk.Toplevel(root)
@@ -58,8 +64,12 @@ def update_clicked():
     txtX=tk.Text(updWin, height=1)
     lblY=tk.Label(updWin,text="Y Value")
     txtY=tk.Text(updWin, height=1)
-    addButton = tk.Button(updWin, text="Update", command=lambda : actualAddToDB((
-        txtX.get(1.0,tk.END),txtY.get(1.0,tk.END)),updWin)
+    addButton = tk.Button(updWin, text="Update", command=lambda : actualUpdateDB(
+        (
+        txt.Id.get(1.0,tk.END),
+        txtX.get(1.0,tk.END),
+        txtY.get(1.0,tk.END)
+        ),updWin)
         )
     cancelButton = tk.Button(updWin, text="Cancel", command=lambda : updWin.destroy())
     lblId.grid(row=0,column=0)
