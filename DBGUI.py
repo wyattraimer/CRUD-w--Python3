@@ -7,8 +7,12 @@ def actualAddToDB(values,win):
     outputLocations()
     win.destroy()
 
-def actualUpdateDB(values, win):
-    # d is a dictionary
+def actualUpdateDB(values, win): # values is a tuple wher 0 is Id, 1 is X, etc.
+    d={"id":values[0]}
+    if len(values[1])>0:
+        d["x"]=values[1]
+    if len(values[2])>0:
+        d["y"]=values[2]
     putChange(d)
     outputLocations()
     win.destroy()
@@ -66,7 +70,7 @@ def update_clicked():
     txtY=tk.Text(updWin, height=1)
     addButton = tk.Button(updWin, text="Update", command=lambda : actualUpdateDB(
         (
-        txt.Id.get(1.0,tk.END),
+        txtId.get(1.0,tk.END),
         txtX.get(1.0,tk.END),
         txtY.get(1.0,tk.END)
         ),updWin)
