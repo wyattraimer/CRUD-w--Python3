@@ -11,7 +11,7 @@ cursor = connection.cursor()
 
 # R in CRUD
 def getLocations():
-    cursor.execute("select id,x,y from location")
+    cursor.execute("select id,x,y from location order by id")
     data=cursor.fetchall()
     # print(data)
     return data
