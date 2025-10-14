@@ -32,7 +32,6 @@ def add_clicked():
     addWin.grab_set()
     addWin.wait_window()
 
-
 def delete_clicked():
     global outputArea
     global txtId
@@ -46,6 +45,35 @@ def update_clicked():
     outputArea.delete(1.0, tk.END)
     # puts specific text at bottom of text area
     outputArea.insert(tk.END, "Data would be here\n" + selected.get())
+
+def update_clicked():
+    global root
+    updWin=tk.Toplevel(root)
+    updWin.geometry("600x300")
+    updWin.grid_columnconfigure(0, weight=1, uniform="col")
+    updWin.grid_columnconfigure(1, weight=1, uniform="col")
+    lblId=tk.Label(updWin,text="Update Id")
+    txtId=tk.Text(updWin, height=1)
+    lblX=tk.Label(updWin,text="X Value")
+    txtX=tk.Text(updWin, height=1)
+    lblY=tk.Label(updWin,text="Y Value")
+    txtY=tk.Text(updWin, height=1)
+    addButton = tk.Button(updWin, text="Update", command=lambda : actualAddToDB((
+        txtX.get(1.0,tk.END),txtY.get(1.0,tk.END)),updWin)
+        )
+    cancelButton = tk.Button(updWin, text="Cancel", command=lambda : updWin.destroy())
+    lblId.grid(row=0,column=0)
+    txtId.grid(row=0,column=1)
+    lblX.grid(row=1,column=0)
+    txtX.grid(row=1,column=1)
+    lblY.grid(row=2,column=0)
+    txtY.grid(row=2,column=1)
+    addButton.grid(row=3,column=0)
+    cancelButton.grid(row=3,column=1)
+    updWin.transient(root)
+    updWin.wait_visibility()
+    updWin.grab_set()
+    updWin.wait_window()
 
 def outputLocations():
     global outputArea
