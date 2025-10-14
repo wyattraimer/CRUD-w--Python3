@@ -68,13 +68,7 @@ def update_clicked():
     txtX=tk.Text(updWin, height=1)
     lblY=tk.Label(updWin,text="Y Value")
     txtY=tk.Text(updWin, height=1)
-    addButton = tk.Button(updWin, text="Update", command=lambda : actualUpdateDB(
-        (
-        txtId.get(1.0,tk.END),
-        txtX.get(1.0,tk.END),
-        txtY.get(1.0,tk.END)
-        ),updWin)
-        )
+    updButton = tk.Button(updWin, text="Update", command=lambda : actualUpdateDB((txtId.get(1.0,tk.END),txtX.get(1.0,tk.END),txtY.get(1.0,tk.END)),updWin))
     cancelButton = tk.Button(updWin, text="Cancel", command=lambda : updWin.destroy())
     lblId.grid(row=0,column=0)
     txtId.grid(row=0,column=1)
@@ -82,7 +76,7 @@ def update_clicked():
     txtX.grid(row=1,column=1)
     lblY.grid(row=2,column=0)
     txtY.grid(row=2,column=1)
-    addButton.grid(row=3,column=0)
+    updButton.grid(row=3,column=0)
     cancelButton.grid(row=3,column=1)
     updWin.transient(root)
     updWin.wait_visibility()
