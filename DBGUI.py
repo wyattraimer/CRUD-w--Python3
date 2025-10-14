@@ -50,8 +50,13 @@ def outputLocations():
     global outputArea
     # goes to db query and gives locations
     locations=getLocations()
+    outputArea.delete(1.0, tk.END)
+    outputArea.insert(tk.END,"ID\t X\t Y")
     for location in locations:
-        outputArea.insert(tk.END, str(location)+"\n")
+        id=location[0]
+        x=location[1]
+        y=location[2]
+        outputArea.insert(tk.END, f"{id}\t {x}\t {y}\n")
 
 root = tk.Tk()
 root.title("Location Data Tool")
