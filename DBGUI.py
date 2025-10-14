@@ -4,6 +4,7 @@ from DB import *
 def actualAddToDB(values,win):
     # need to pass a tuple to putLocation()
     putLocation(values)
+    outputLocations()
     win.destroy()
 
 def add_clicked():
@@ -51,7 +52,7 @@ def outputLocations():
     # goes to db query and gives locations
     locations=getLocations()
     outputArea.delete(1.0, tk.END)
-    outputArea.insert(tk.END,"ID\t X\t Y")
+    outputArea.insert(tk.END,"ID\t X\t Y\n")
     for location in locations:
         id=location[0]
         x=location[1]
