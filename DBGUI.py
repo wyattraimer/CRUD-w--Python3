@@ -26,6 +26,10 @@ def add_clicked():
     txtY.grid(row=1,column=1)
     addButton.grid(row=3,column=0)
     cancelButton.grid(row=3,column=1)
+    addWin.transient(root)
+    addWin.wait_visibility()
+    addWin.grab_set()
+    addWin.wait_window()
 
 
 def delete_clicked():
