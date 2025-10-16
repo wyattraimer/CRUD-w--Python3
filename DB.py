@@ -17,7 +17,7 @@ def getLocations():
     return data
 
 def getIds():
-    cursor.execute("select id,x,y from location order by id")
+    cursor.execute("select id from location order by id")
     data=cursor.fetchall()
     return data
 
