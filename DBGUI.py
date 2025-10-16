@@ -64,6 +64,7 @@ def update_clicked():
     updWin.grid_columnconfigure(1, weight=1, uniform="col")
     lblId=tk.Label(updWin,text="Update Id")
     # txtId=tk.Text(updWin, height=1)
+    items=getIds()
     selected=tk.StringVar(value="--Select--")
     txtId=tk.OptionMenu(root, selected, *items)
 
