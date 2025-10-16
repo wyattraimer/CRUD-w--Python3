@@ -24,9 +24,9 @@ def add_clicked():
     addWin.grid_columnconfigure(0, weight=1, uniform="col")
     addWin.grid_columnconfigure(1, weight=1, uniform="col")
     lblX=tk.Label(addWin,text="X Value")
-    txtX=tk.Scale(addWin, from_=0.0, to=100.0, orient=tk.HORIZONTAL)
+    txtX=tk.Scale(addWin, from_=0.0, to=100.0, orient=tk.HORIZONTAL, tickinterval=10.0)
     lblY=tk.Label(addWin,text="Y Value")
-    txtY=tk.Scale(addWin, from_=0.0, to=100.0, orient=tk.HORIZONTAL)
+    txtY=tk.Scale(addWin, from_=0.0, to=100.0, orient=tk.HORIZONTAL, tickinterval=10.0)
     addButton = tk.Button(addWin, text="Add", command=lambda : actualAddToDB((
         txtX.get(),txtY.get()),addWin)
         )
