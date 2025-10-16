@@ -17,6 +17,14 @@ def actualUpdateDB(values, win): # values is a tuple wher 0 is Id, 1 is X, etc.
     outputLocations()
     win.destroy()
 
+def getCurrentValues(id,xText,yText):
+    values=getDataForId(id)
+    xText.delete(1.0, tk.END)
+    xText.insert(tk.END, values[0])
+    yText.delete(1.0, tk.END)
+    yText.insert(tk.END, values[1])
+
+
 def add_clicked():
     global root
     addWin=tk.Toplevel(root)
@@ -66,7 +74,7 @@ def update_clicked():
     # txtId=tk.Text(updWin, height=1)
     items=getIds()
     selected=tk.StringVar(value="--Select--")
-    txtId=tk.OptionMenu(updWin, selected, *items, command=lambda:getCurrentValues(selected.get(),txtX,txtY))
+    txtId=tk.OptionMenu(updWin, selected, *items, command=lambda : getCurrentValues(selected.get(),txtX,txtY))
 
     lblX=tk.Label(updWin,text="X Value")
     txtX=tk.Text(updWin, height=1)
