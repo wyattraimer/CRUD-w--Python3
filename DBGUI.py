@@ -66,7 +66,7 @@ def update_clicked():
     # txtId=tk.Text(updWin, height=1)
     items=getIds()
     selected=tk.StringVar(value="--Select--")
-    txtId=tk.OptionMenu(updWin, selected, *items)
+    txtId=tk.OptionMenu(updWin, selected, *items, command=lambda:getCurrentValues(selected.get(),txtX,txtY))
 
     lblX=tk.Label(updWin,text="X Value")
     txtX=tk.Text(updWin, height=1)

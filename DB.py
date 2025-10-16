@@ -19,12 +19,17 @@ def getLocations():
 def getIds():
     cursor.execute("select id from location order by id")
     data=cursor.fetchall()
-        
+
     data2=[]
     for d in data:
         data2.append(d[0])
 
     return data2
+
+def getDataForId(id):
+    cursor.execute(f"select x,y from location where id={id}")
+    data=cursor.fetchone()
+    return data
 
 def putLocation(values):
     cursor.execute(f"insert into location (x,y) values ({values[0]},{values[1]})")
