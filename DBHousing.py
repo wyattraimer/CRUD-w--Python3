@@ -114,30 +114,33 @@ fields=['longitude', # Actual DB Fields
 'median_income',
 'median_house_value']
 
-fieldLabels=['Longitude', # Human readable labels for fields
-'Latitude',
-'Median Age',
-'Total Rooms',
-'Total Bedrooms',
-'Population',
-'Households',
-'Median Income',
-'Median Value']
+if __name__ == "__main__":
 
-fig, axs = plt.subplots(len(fields),len(fields))
-for f1 in range(len(fields)):
-    for f2 in range(len(fields)):
-        if (f1<f2):
-            scatterData(fields[f2],fields[f1],axs[f1,f2])
-            if (f1+2<=f2):
+    fieldLabels=['Longitude', # Human readable labels for fields
+    'Latitude',
+    'Median Age',
+    'Total Rooms',
+    'Total Bedrooms',
+    'Population',
+    'Households',
+    'Median Income',
+    'Median Value']
+
+    fig, axs = plt.subplots(len(fields),len(fields))
+    plt.subplots_adjust(left=.01, bottom=.01, right=.99, top=.99)
+    for f1 in range(len(fields)):
+        for f2 in range(len(fields)):
+            if (f1<f2):
+                scatterData(fields[f2],fields[f1],axs[f1,f2])
+                if (f1+2<=f2):
+                    axs[f1,f2].axis('off')
+                else:
+                    axs[f1,f2].spines['top'].set_visible(False)
+                    axs[f1,f2].spines['right'].set_visible(False)
+            elif (f1==f2):
                 axs[f1,f2].axis('off')
+                axs[f1,f2].text(0.0,0.5,fieldLabels[f1], verticalalignment='center')            
             else:
-                axs[f1,f2].spines['top'].set_visible(False)
-                axs[f1,f2].spines['right'].set_visible(False)
-        elif (f1==f2):
-            axs[f1,f2].axis('off')
-            axs[f1,f2].text(0.0,0.5,fieldLabels[f1], verticalalignment='center')            
-        else:
-            data=getCorrData(fields[f1],fields[f2])
-            showCorr(data[0],data[1],data[2],axs[f1,f2])
-plt.show()
+                data=getCorrData(fields[f1],fields[f2])
+                showCorr(data[0],data[1],data[2],axs[f1,f2])
+    plt.show()
