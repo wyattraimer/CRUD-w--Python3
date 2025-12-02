@@ -27,3 +27,11 @@ temp float,
 temp_accepted text
 );
 \copy usgstemp from 'C:\Users\Wyatt\Documents\CMU\Fall 2025\CSCI 260-001 Intro to Databases\Class\Code\usgsTemp0125-1125.txt' with delimiter E'\t';
+
+
+--selecting data points from different tables and joining on the date
+select usgsph.datetime, ph, temp, height 
+    from usgsph 
+        left join usgstemp on usgsph.datetime=usgstemp.datetime
+        left join usgsheight on usgsph.datetime=usgsheight.datetime
+    limit 10;
