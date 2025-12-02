@@ -35,3 +35,35 @@ select usgsph.datetime, ph, temp, height
         left join usgstemp on usgsph.datetime=usgstemp.datetime
         left join usgsheight on usgsph.datetime=usgsheight.datetime
     limit 10;
+
+
+-- create table usgsall (
+--     datetime text,
+--     ph float,
+--     temp float,
+--     height float
+-- );
+
+
+-- insert into usgsall
+--     select usgsph.datetime, ph, temp, height 
+--         from usgsph 
+--             left join usgstemp on usgsph.datetime=usgstemp.datetime
+--             left join usgsheight on usgsph.datetime=usgsheight.datetime
+-- ;
+
+
+create table usgsall (
+    datetime timestamp,
+    ph float,
+    temp float,
+    height float
+);
+
+
+insert into usgsall
+    select to_timestamp(usgsph.datetime,'YYYY-MM-DD HH24:MI'),ph,temp,height 
+        from usgsph 
+            left join usgstemp on usgsph.datetime=usgstemp.datetime
+            left join usgsheight on usgsph.datetime=usgsheight.datetime
+;
